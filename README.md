@@ -12,7 +12,7 @@ When running concurrent tests across multiple trading pairs (btc_idr and eth_idr
 
 - Error: `too_many_requests_from_your_ip`
 - This suggests an IP-based rate limit rather than the documented user/pair-based limit
-- The error occurs after approximately 30-33 successful requests per pair
+- The error occurs after approximately 60 requests per session (if 2 pairs running concurrently, error will occur after approximately 30 requests)
 
 ## Setup and Usage
 
