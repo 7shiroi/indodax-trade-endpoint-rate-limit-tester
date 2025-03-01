@@ -5,12 +5,19 @@ import asyncio
 import aiohttp
 from urllib.parse import urlencode
 from datetime import datetime
+import sys
+
+# Add this at the beginning of your script, before any other asyncio operations
+if sys.platform.startswith('win'):
+    # Force use of selector event loop on Windows
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 class IndodaxRateLimitTester:
     def __init__(self, api_key, secret_key):
         self.api_key = api_key
         self.secret_key = secret_key.encode()
-        self.base_url = "https://indodax.com/tapi"
+        self.base_url = "https://btcapi.net/tapi"
+        # self.base_url = "https://indodax.com/tapi"
 
     def _generate_signature(self, params):
         encoded_params = urlencode(params)
@@ -23,7 +30,7 @@ class IndodaxRateLimitTester:
         params = {
             'method': 'trade',
             'timestamp': int(time.time() * 1000),
-            'recvWindow': 5000,
+            'recvWindow': 1000,
             'pair': pair,
             'type': 'buy',
             'price': '50000000000',  # Lower price
@@ -93,8 +100,8 @@ class IndodaxRateLimitTester:
 
 async def main():
     # Replace with your API credentials
-    api_key = "YOUR_API_KEY"
-    secret_key = "YOUR_SECRET_KEY"
+    api_key = "5E2F9AKU-IP6FK6L4-LYYCGY1B-MWLNNRJK-RMODLC6Z"
+    secret_key = "9831bf789b2ecd6922529732255e108e5443330e70801faa9079dcb7af5aee1968edb01c719ed15e"
 
     # Test parameters
     pairs = ['btc_idr', 'eth_idr']  # Test multiple pairs
