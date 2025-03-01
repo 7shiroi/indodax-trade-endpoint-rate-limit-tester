@@ -100,8 +100,8 @@ class IndodaxRateLimitTester:
 
 async def main():
     # Replace with your API credentials
-    api_key = "5E2F9AKU-IP6FK6L4-LYYCGY1B-MWLNNRJK-RMODLC6Z"
-    secret_key = "9831bf789b2ecd6922529732255e108e5443330e70801faa9079dcb7af5aee1968edb01c719ed15e"
+    api_key = "YOUR_API_KEY"
+    secret_key = "YOUR_SECRET_KEY"
 
     # Test parameters
     pairs = ['btc_idr', 'eth_idr']  # Test multiple pairs
